@@ -1,0 +1,7 @@
+print("abc", "abc".islower())
+print("abc", "abc".isupper())
+print("ABC", "ABC".isupper())
+print("ABC", "ABC".islower())
+print("abc", "abc".upper())
+print("pytHON", "pytHON".upper())
+print("pytHON", "pytHON".lower())
