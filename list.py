@@ -1,12 +1,5 @@
-#List of cartoons
-cartoons = ["Tom and Jerry", "SpongeBob SquarePants", "The Simpsons", "Looney Tunes", "Adventure Time", "Rick and Morty", "Avatar: The Last Airbender"]
-print("Accessing the list using positive indexing:")
-print(cartoons[0]) 
-print(cartoons[3])  
-print(cartoons[6]) 
-print("="*50)
-print(cartoons[-1])
-print(cartoons[-4])
-print(cartoons[-7]) 
-print("="*50)
-print(cartoons[0:4])
+List=[i for i in range(1,100) if i*i]
+print("-----------------")
+Set={i for i in range(2,10,2)}
+print(List)
+print(sorted(Set))
