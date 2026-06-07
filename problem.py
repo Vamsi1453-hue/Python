@@ -1,18 +1,11 @@
-#string operations
-Str="           This is a string example"
-print(Str.capitalize())
-print(Str.casefold())
-print(Str.count('i'))
-print(Str.encode())
-print(Str.center(29,"*"))
-print(Str.endswith('e'))
-print(Str.expandtabs(tabsize=3))
-print(Str.find('a'))
-print(Str.format(10,"*"))
-#scott@oracle
-Str="scott@oracle.in"
-a=Str.find('@')
-d=Str.find('.')
-print(Str[0:a])
-print(Str[a+1:d])
-print(Str.isascii())
+#use loop or direct input to populate the list with 7 numbers and use sum() to get total , max() for best day , min() for worst day and store each input in float or int format, not string
+n=7
+Revenue=[]
+for i in range(1,8):
+    element=int(input(f"Enter the revenue for day{i}: "))
+    Revenue.append(element)
+print(f"Total Revenue :{sum(Revenue)} | Best Day:{max(Revenue)} | Worst Day:{min(Revenue)}")
+
+#another logic for code
+Revenue=list(map(int,input("Enter the Revenue for 7 days").split()))
+print(f"Total Revenue:{sum(Revenue)} | Best Day: {max(Revenue)} | Worst Day: {min(Revenue)}")
