@@ -1,4 +1,11 @@
-n = int(input("Enter a number: "))
-for i in range(n):
-    ch = chr(65+i)
-    print(f"{ch} --> {ord(ch)}")
+n=int(input("Enter a value :"))
+for i in range(1,n+1):
+    k=0
+    for j in range(n,0,-1):
+        if (j<=i):
+            k=k+1
+            print(chr(96+i),end=" ")
+        else:
+            print(" ",end=" ")
+    print()
+        

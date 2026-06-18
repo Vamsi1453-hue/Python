@@ -1,3 +1,5 @@
-n = int(input("Enter a number: "))
-for i in range(n):
-    print(1 + 3*i, end=" ")
+n=int(input("Enter a value: "))
+for i in range(1,n+1):
+    for j in range(1,i+1):
+        print(chr(i+96),end=" ")
+    print()

@@ -1,6 +1,5 @@
-n = 5  
-letters = ["A", "C", "E"]  
-for idx, ch in enumerate(letters):
-    print((ch + " ") * n)
-    if idx != len(letters) - 1:
-        print("* " * n)
+n=int(input("Enter a value: "))
+for i in range(1,n+1):
+    for j in range(n,0,-1):
+        print(chr(j+96),end=" ")
+    print()
