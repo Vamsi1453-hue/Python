@@ -1,26 +1,40 @@
-class Passenger:
-    def __init__(self, passenger_name):
-        self.passenger_name = passenger_name
+def classify_password(pwd):
+    if len(pwd) < 8:
+        return "Weak"
+        
+    checks = [
+        any(c.isupper() for c in pwd),
+        any(c.islower() for c in pwd),
+        any(c.isdigit() for c in pwd),
+        any(not c.isalnum() for c in pwd)
+    ]
+    
+    score = sum(checks)
+    
+    if score == 4:
+        return "Strong"
+    elif score == 3:
+        return "Medium"
+    else:
+        return "Weak"
 
-class Flight:
-    def __init__(self, flight_number):
-        self.flight_number = flight_number
+try:
+    n = int(input("Enter the number of words: "))
+except KeyboardInterrupt:
+    n = 0
+    print("\nNo input provided")
 
-class BoardingPass:
-    def __init__(self, seat_number):
-        self.seat_number = seat_number
+if n > 0:
+    passwords = [input().strip() for _ in range(n)]
+else:
+    passwords = []
 
-    def generate_boarding_pass(self, passenger, flight):
-        print("=" * 50)
-        print("               BOARDING PASS")
-        print("=" * 50)
-        print(f"\nPassenger Name : {passenger.passenger_name}")
-        print(f"Flight Number  : {flight.flight_number}")
-        print(f"Seat Number    : {self.seat_number}")
-        print("\nStatus         : CHECK-IN COMPLETE")
-        print("\n" + "=" * 50)
+counts = {"Strong": 0, "Medium": 0, "Weak": 0}
 
-passenger = Passenger("Mason")
-flight = Flight("AI202")
-boarding_pass = BoardingPass("12A")
-boarding_pass.generate_boarding_pass(passenger, flight)
+for p in passwords:
+    category = classify_password(p)
+    counts[category] += 1
+
+print("Strong", counts["Strong"])
+print("Medium", counts["Medium"])
+print("Weak", counts["Weak"])

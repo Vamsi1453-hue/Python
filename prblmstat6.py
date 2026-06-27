@@ -1,36 +1,21 @@
-class Client:
-    def __init__(self, client_name):
-        self.client_name = client_name
+#cricket scores avg
+n = int(input("Enter number of teams: "))
+teams = []
+scores = []
 
+for _ in range(n):
+    name, run = input("Enter team name and score (e.g. India 250): ").split()
+    run = int(run)
+    teams.append((name, run))
+    scores.append(run)
 
-class Project:
-    def __init__(self, project_name, hourly_rate):
-        self.project_name = project_name
-        self.hourly_rate = hourly_rate
+highest_team = max(teams, key=lambda x: x[1])[0]
+average_score = sum(scores) / n
+above_avg_teams = [name for name, run in teams if run > average_score]
 
+print("Highest :", highest_team)
+print("Average :", round(average_score, 1))
+print("Above Average")
+for team in above_avg_teams:
+    print(team)
 
-class Invoice:
-    def __init__(self, hours_worked):
-        self.hours_worked = hours_worked
-
-    def generate_invoice(self, client, project):
-        total = self.hours_worked * project.hourly_rate
-
-        print("=" * 50)
-        print("                CLIENT INVOICE")
-        print("=" * 50)
-
-        print(f"\nClient Name   : {client.client_name}")
-        print(f"Project Name  : {project.project_name}")
-
-        print(f"\nHours Worked  : {self.hours_worked}")
-        print(f"\nTotal Amount  : ₹{total}")
-
-        print("\n" + "=" * 50)
-
-
-client = Client("Olivia")
-project = Project("Portfolio Website", 1000)
-
-invoice = Invoice(20)
-invoice.generate_invoice(client, project)

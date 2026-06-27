@@ -1,24 +1,18 @@
-class Vehicle:
-    def __init__(self, vehicle_number):
-        self.vehicle_number = vehicle_number
+def merge_inventory():
+    n = int(input("Enter number of items: "))
+    inventory = {}
 
-class ParkingManager:
-    def __init__(self, hours_parked, rate_per_hour):
-        self.hours_parked = hours_parked
-        self.rate_per_hour = rate_per_hour
+    for _ in range(n):
+        item, qty = input("Enter item and quantity: ").split()
+        qty = int(qty)
+        if item in inventory:
+            inventory[item] += qty
+        else:
+            inventory[item] = qty
 
-    def calculate_fee(self):
-        return self.hours_parked * self.rate_per_hour
+    print("Merged Inventory:")
+    for item, qty in inventory.items():
+        print(item, qty)
 
-    def generate_receipt(self, vehicle):
-        print("=" * 50)
-        print("              PARKING RECEIPT")
-        print("=" * 50)
-        print(f"\nVehicle Number : {vehicle.vehicle_number}")
-        print(f"Hours Parked   : {self.hours_parked}")
-        print(f"\nParking Fee    : ₹{self.calculate_fee()}")
-        print("\n" + "=" * 50)
 
-vehicle = Vehicle("AP39AB1234")
-parking = ParkingManager(5, 30)
-parking.generate_receipt(vehicle)
+merge_inventory()
